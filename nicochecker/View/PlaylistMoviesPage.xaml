@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nicochecker.PlaylistMoviesPage">
+	<ContentPage.Content>
+		<ListView x:Name="ListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="64" ItemTapped="Handle_ItemTapped">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill" Padding="8, 0, 0, 0" >
+							<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Start" >
+								<Label Text="{Binding PostDate}" FontSize="12" TextColor="Silver" HorizontalOptions="End" />
+								<StackLayout Orientation="Horizontal">
+									<Image Source="icon_mail_marker_unread.png" IsVisible="{Binding Unwatched}" VerticalOptions="Start" />
+									<Label Text="{Binding Title}" FontSize="12" VerticalOptions="Center" />
+								</StackLayout>
+							</StackLayout>
+							<Image Source="{Binding ThumbnailUrl}" Aspect="AspectFill" WidthRequest="64" HeightRequest="64"/>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+</ContentPage>

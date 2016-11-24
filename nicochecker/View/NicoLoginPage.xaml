@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nicochecker.NicoLoginPage">
+
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness"
+			              iOS="0, 20, 0, 0"
+			              Android="0"
+			              WinPhone="0" />
+	</ContentPage.Padding>
+	<ContentPage.Content>
+		<StackLayout VerticalOptions="Start" HorizontalOptions="FillAndExpand" Padding="16">
+			<Image Source="http://res.nimg.jp/img/base/head/logo/ginza.png" HorizontalOptions="Start" Margin="0, 8"/>
+			<Entry x:Name="NicoUserEntry" Placeholder="メールアドレスまたは電話番号"/>
+			<Entry x:Name="NicoPasswordEntry" Placeholder="パスワード" IsPassword="true"/>
+			<Button Text="ニコニコ動画にログイン" Margin="0, 16" BackgroundColor="White" Clicked="HandleLoginCliked"/>
+		</StackLayout>
+	</ContentPage.Content>
+
+</ContentPage>

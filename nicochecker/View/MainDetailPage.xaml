@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nicochecker.MainDetailPage" >
+	<ContentPage.Content>
+		<ListView x:Name="ListView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowHeight="64" ItemTapped="Handle_ItemTapped" IsPullToRefreshEnabled="true" >
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<ViewCell.ContextActions>
+							<MenuItem Text="削除" IsDestructive="true" CommandParameter="{Binding .}" Clicked="Handle_DeleteClicked" />
+						</ViewCell.ContextActions>
+						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
+							<Image Source="{Binding ThumbnailUrl}" Aspect="AspectFill" WidthRequest="64" HeightRequest="64"/>
+
+							<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center" >
+								<Label Text="{Binding Title}" FontSize="16" LineBreakMode="TailTruncation" />
+								<Label Text="{Binding Creator}" FontSize="12" LineBreakMode="TailTruncation" />
+							</StackLayout>
+							<StackLayout WidthRequest="80" HorizontalOptions="End" VerticalOptions="Center">
+								<Label Text="{Binding NoWatchedNum}" LineBreakMode="NoWrap" Margin="16" FontSize="16" TextColor="Silver" HorizontalOptions="End" VerticalOptions="Center" Style="{DynamicResource SubitleStyle}" />
+							</StackLayout>
+						</StackLayout>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+</ContentPage>

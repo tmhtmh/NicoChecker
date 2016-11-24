@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nicochecker.MainMasterPage"  >
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness"
+			              iOS="0, 20, 0, 0"
+			              Android="0, 24, 0, 0"
+			              WinPhone="0" />
+	</ContentPage.Padding>
+	<ContentPage.Content>
+		<StackLayout>
+			<Label Text="タグ一覧" Margin="16, 16, 0, 0" FontSize="12" />
+			<ListView x:Name="ListView" HorizontalOptions="FillAndExpand" RowHeight="48" ItemTapped="Handle_ItemTapped" >
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Label Text="{Binding Name}" LineBreakMode="TailTruncation" VerticalOptions="Center" TextColor="#007AFF" Margin="32, 0"/>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>
