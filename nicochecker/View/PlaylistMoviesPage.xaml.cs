@@ -37,6 +37,11 @@ namespace nicochecker
 			{
 				// TODO:
 			}));
+
+			ToolbarItems.Add(new ToolbarItem("コメント", "ic_mode_comment.png", async () =>
+			{
+				// TODO:
+			}));
 		}
 
 		private async void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)
