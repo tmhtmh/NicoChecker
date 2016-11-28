@@ -75,6 +75,18 @@ namespace nicochecker
 			}
 		}
 
+		public string Comment
+		{
+			get
+			{
+				return Settings.GetValue("comment_" + Id, string.Empty);
+			}
+			set
+			{
+				Settings.SetValue("comment_" + Id, value);
+			}
+		}
+
 		/// <summary>
 		/// Gets or sets the no watched number.
 		/// </summary>
@@ -112,7 +124,7 @@ namespace nicochecker
 		/// <param name="tag">Tag Name.</param>
 		public void AddTag(String tag)
 		{
-			List<string> tags = TagList;
+			List<string> tags = this.TagList;
 			tags.Add(tag);
 			TagList = tags;
 		}

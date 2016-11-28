@@ -28,9 +28,11 @@ namespace nicochecker
 			this.MainPage = mainPage;
 			this.DetailPage = detailPage;
 			this.BackgroundColor = Utils.getPrimaryColor();
+			this.BackgroundColor = Color.FromHex("007aff");
 
 			this.ListView.ItemsSource = Tags.getInstance().TagList;
 			this.ListView.BackgroundColor = Utils.getPrimaryColor();
+			this.ListView.BackgroundColor = Color.FromHex("007aff");
 		}
 
 		private void Handle_ItemTapped(object sender, Xamarin.Forms.ItemTappedEventArgs e)

@@ -89,8 +89,11 @@ namespace nicochecker
 					// ログイン失敗したらログイン要求
 					this.ListView.IsRefreshing = false;
 					await Navigation.PushModalAsync(new NicoLoginPage(this));
+					return;
 				}
 			}
+
+			this.ListView.IsRefreshing = false;
 
 			var playlists = Settings.Playlists;
 			foreach (Playlist value in playlists)
@@ -99,6 +102,20 @@ namespace nicochecker
 				{
 					var playlist = await this.Service.fetchPlaylistAsync(value.Id);
 					this.AllPlaylists.Add(playlist);
+
+					if (this.CurrentTag.Name.Equals("全て"))
+					{
+						this.DisplayPlaylists.Add(playlist);
+						continue;
+					}
+
+					foreach (var tagName in playlist.TagList)
+					{
+						if (tagName.Equals(CurrentTag.Name))
+						{
+							this.DisplayPlaylists.Add(playlist);
+						}
+					}
 				}
 				catch
 				{
@@ -106,10 +123,7 @@ namespace nicochecker
 				}
 			}
 
-			updateDisplayItems();
 			updateTagList();
-
-			this.ListView.IsRefreshing = false;
 		}
 
 		/// <summary>
@@ -189,6 +203,18 @@ namespace nicochecker
 			savePlaylists();
 
 			updateTagList();
+		}
+
+		private void Handle_TagClicked(object sender, System.EventArgs e)
+		{
+			Playlist playlist = (Playlist)((MenuItem)sender).CommandParameter;
+			Navigation.PushAsync(new TagPage(playlist, this.AllPlaylists));
+		}
+
+		private void Handle_CommentClicked(object sender, System.EventArgs e)
+		{
+			Playlist playlist = (Playlist)((MenuItem)sender).CommandParameter;
+			Navigation.PushAsync(new AddCommentPage(playlist));
 		}
 
 		private void savePlaylists()

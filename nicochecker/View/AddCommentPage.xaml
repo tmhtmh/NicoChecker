@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nicochecker.AddCommentPage" >
+	<ContentPage.Content>
+		<StackLayout>
+			<Editor x:Name="CommentEditor" VerticalOptions="FillAndExpand" BackgroundColor="White" Margin="8, 0" FontSize="14"/>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage> 

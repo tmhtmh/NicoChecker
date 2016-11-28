@@ -149,6 +149,12 @@
     <BundleResource Include="Resources\ic_mode_comment.png" />
     <BundleResource Include="Resources\ic_mode_comment%402x.png" />
     <BundleResource Include="Resources\ic_mode_comment%403x.png" />
+    <BundleResource Include="Resources\ic_check.png" />
+    <BundleResource Include="Resources\ic_check%402x.png" />
+    <BundleResource Include="Resources\ic_check%403x.png" />
+    <BundleResource Include="Resources\ic_delete.png" />
+    <BundleResource Include="Resources\ic_delete%402x.png" />
+    <BundleResource Include="Resources\ic_delete%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.168\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

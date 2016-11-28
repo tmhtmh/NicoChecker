@@ -49,6 +49,15 @@
     <EmbeddedResource Include="View\MainMasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\TagPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\TagListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AddCommentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -85,6 +94,15 @@
       <DependentUpon>MainMasterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="View\TagPage.xaml.cs">
+      <DependentUpon>TagPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TagListPage.xaml.cs">
+      <DependentUpon>TagListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddCommentPage.xaml.cs">
+      <DependentUpon>AddCommentPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Net.Http">

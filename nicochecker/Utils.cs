@@ -15,7 +15,7 @@ namespace nicochecker
 
 		public static Color getPrimaryColor()
 		{
-			return Color.FromHex(Device.OnPlatform("f5f5f5", "9e9e9e", "9e9e9e"));
+			return Color.FromHex(Device.OnPlatform("f5f5f5", "007aff", "9e9e9e"));
 		}
 
 		private Utils()

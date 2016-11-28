@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="nicochecker.TagPage" >
+	<ContentPage.Content>
+		<StackLayout>
+			<Entry x:Name="TagInputEntry" Placeholder="追加するタグを入力" Margin="16, 16, 16, 0"/>
+			<Button Text="追加" Clicked="Handle_AddTagClicked" Margin="16, 0, 16, 0" BackgroundColor="White"/>
+			<Button Text="既存のタグから選択" Clicked="Handle_SelectTagClicked" Margin="16, 8, 16, 8" BackgroundColor="#007aff" TextColor="White"/>
+			<Label Text="タグ一覧" Margin="16, 0" FontSize="12" />
+			<ListView x:Name="ListView" HorizontalOptions="FillAndExpand" RowHeight="48" SeparatorVisibility="None" >
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<ViewCell.ContextActions>
+								<MenuItem Text="削除" IsDestructive="true" CommandParameter="{Binding .}" Clicked="Handle_DeleteClicked" />
+							</ViewCell.ContextActions>
+							<Label Text="{Binding Name}" LineBreakMode="TailTruncation" VerticalOptions="Center" Margin="32, 0"/>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

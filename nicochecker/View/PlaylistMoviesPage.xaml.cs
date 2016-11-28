@@ -35,12 +35,12 @@ namespace nicochecker
 
 			ToolbarItems.Add(new ToolbarItem("タグ", "ic_local_offer.png", async () =>
 			{
-				// TODO:
+				await Navigation.PushAsync(new TagPage(this.Playlist, this.Playlists));
 			}));
 
 			ToolbarItems.Add(new ToolbarItem("コメント", "ic_mode_comment.png", async () =>
 			{
-				// TODO:
+				await Navigation.PushAsync(new AddCommentPage(this.Playlist));
 			}));
 		}
 

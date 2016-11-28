@@ -8,12 +8,12 @@
 	</ContentPage.Padding>
 	<ContentPage.Content>
 		<StackLayout>
-			<Label Text="タグ一覧" Margin="16, 16, 0, 0" FontSize="12" />
-			<ListView x:Name="ListView" HorizontalOptions="FillAndExpand" RowHeight="48" ItemTapped="Handle_ItemTapped" >
+			<Label Text="タグ一覧" Margin="16, 16, 0, 0" FontSize="12" TextColor="Silver" />
+			<ListView x:Name="ListView" HorizontalOptions="FillAndExpand" RowHeight="48" SeparatorVisibility="None" ItemTapped="Handle_ItemTapped" >
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
-							<Label Text="{Binding Name}" LineBreakMode="TailTruncation" VerticalOptions="Center" TextColor="#007AFF" Margin="32, 0"/>
+							<Label Text="{Binding Name}" LineBreakMode="TailTruncation" VerticalOptions="Center" TextColor="#ffffff" Margin="32, 0" />
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>

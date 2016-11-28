@@ -6,7 +6,9 @@
 				<DataTemplate>
 					<ViewCell>
 						<ViewCell.ContextActions>
-							<MenuItem Text="削除" IsDestructive="true" CommandParameter="{Binding .}" Clicked="Handle_DeleteClicked" />
+							<MenuItem Text="削除" Icon="ic_delete.png" IsDestructive="true" CommandParameter="{Binding .}" Clicked="Handle_DeleteClicked" />
+							<MenuItem Text="タグ" Icon="ic_local_offer.png" IsDestructive="false" CommandParameter="{Binding .}" Clicked="Handle_TagClicked" />
+							<MenuItem Text="コメント" Icon="ic_mode_comment.png" IsDestructive="false" CommandParameter="{Binding .}" Clicked="Handle_CommentClicked" />
 						</ViewCell.ContextActions>
 						<StackLayout Orientation="Horizontal" HorizontalOptions="Fill">
 							<Image Source="{Binding ThumbnailUrl}" Aspect="AspectFill" WidthRequest="64" HeightRequest="64"/>
