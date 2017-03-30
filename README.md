@@ -20,6 +20,7 @@
 * このPageを利用することで、左からのメニュー表示を簡単に実現することができます
 * `MasterDetailPage`を継承した画面を作成し、その画面のコンストラクタで、`Detail`と`Master`を指定します
 * `Detail`がメインとなる画面で、`Master`が左から出るメニューの画面です
+
 ```cs:MainPage.xaml.cs
 public MainPage()
 {
@@ -42,19 +43,16 @@ ToolbarItems.Add(new ToolbarItem("追加"/** 表示したい文字 */, "ic_add.p
 
 ## ListView
 * `ItemsSource`に表示したいアイテムのリストを設定する
-MainDetailPage.xaml.cs
 ```cs:MainDetailPage.xaml.cs
-    this.ListView.ItemsSource = DisplayPlaylists;
+this.ListView.ItemsSource = DisplayPlaylists;
 ```
 
 * `ItemSource`に、`ObservableCollection`を指定すると、コレクションの値の変更が直ちにUIに反映されます
 ```cs:MainDetailPage.xaml.cs
-{
-    private ObservableCollection<Playlist> DisplayPlaylists = new ObservableCollection<Playlist>();
-    ...
-    // コレクションを変更するだけで、直ちにUI表示に反映されます
-    this.DisplayPlaylists.Add(playlist);
-}
+private ObservableCollection<Playlist> DisplayPlaylists = new ObservableCollection<Playlist>();
+...
+// コレクションを変更するだけで、直ちにUI表示に反映されます
+this.DisplayPlaylists.Add(playlist);
 ```
 
 ## ListViewのCellのContextActions
@@ -82,6 +80,36 @@ private void Handle_DeleteClicked(object sender, System.EventArgs e)
 
     // 押されたアイテムに対する処理を記述する
     ...
+}　
+```
+## アプリがフォアグラウンドになった時に処理をする方法
+* `Application`を継承するクラスの`OnResume`メソッドに処理を記述する
+```cs:App.xaml.cs
+protected async override void OnResume()
+{
+    // Handle when your app resumes
+    // 履歴取得 
+    if (string.IsNullOrEmpty(Settings.NicoLoginCookies))
+    {
+        return;
+    } 
+    await DetailPage.Start();
 }
 ```
 
+## 設定値の管理
+* `xam.plugin.Settings`を導入すると、helper/Settings.csファイルが自動で生成される
+* 上記ファイルに管理したい設定値を追加していく(key, value)
+```cs:Settings.cs
+public static string NicoUser
+{
+    get
+    {
+        return AppSettings.GetValueOrDefault<string>(Keys.NicoUser.ToString(), SettingsDefault);
+    }
+    set
+    {
+        AppSettings.AddOrUpdateValue<string>(Keys.NicoUser.ToString(), value);
+    }
+}
+```
